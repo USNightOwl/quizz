@@ -1,0 +1,28 @@
+{
+  "name": "quick",
+  "homepage": "https://USNightOwl.github.io/quick",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=3000",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "vue": "^3.4.21",
+    "vue-router": "4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.5",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.19",
+    "husky": "^9.0.11",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vue-tsc": "^2.0.6"
+  }
+}
