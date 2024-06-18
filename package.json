@@ -11,6 +11,8 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "vue": "^3.4.21",
     "vue-router": "4"
   },
