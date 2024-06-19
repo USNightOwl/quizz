@@ -4,6 +4,6 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
   import ListBox from "@/components/ListBox.vue";
 </script>
