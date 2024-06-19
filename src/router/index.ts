@@ -1,17 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import NotFoundPage from "@/views/NoutFoundPage.vue";
-import HomePage from "@/views/HomePage.vue";
 
 const routes = [
   {
     path:"/",
-    name: "home",
-    component: HomePage,
+    component: () => import('@/layout/DefaultLayout.vue'),
+    children: [
+      {
+        path: "",
+        name: "home",
+        component: () => import("@/views/HomePage.vue"),
+      },
+      {
+        path: "/danh-sach-bai-tap/:classId",
+        name: "course",
+        component: () => import("@/views/ExercisePage.vue"),
+      },
+    ]
   },
   {
     path:"/:pathMatch(.*)*",
     name: "notfound",
-    component: NotFoundPage,
+    component: () => import("@/views/NoutFoundPage.vue"),
   }
 ]
 

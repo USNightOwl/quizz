@@ -1,8 +1,8 @@
 <template lang="">
-
   <div>
-    Home page
+    Exercise
   </div>
 </template>
 <script setup lang="ts">
+
 </script>
