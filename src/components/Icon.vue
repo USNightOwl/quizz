@@ -3,5 +3,13 @@
 </template>
 
 <script setup>
-  const props = defineProps(['icon', 'className']);
+  const props = defineProps({
+      icon: {
+        type: String,
+        required: true,
+      },
+      className: {
+        type: String,
+      }
+  });
 </script>
