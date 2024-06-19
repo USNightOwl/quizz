@@ -12,7 +12,7 @@ const routes = [
       },
       {
         path: "/danh-sach-bai-tap/:classId",
-        name: "course",
+        name: "exercise",
         component: () => import("@/views/ExercisePage.vue"),
       },
     ]

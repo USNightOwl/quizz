@@ -1,7 +1,7 @@
 <template lang="">
   <div>
     <Header/>
-    <div class="pt-12 min-h-screen">
+    <div class="pt-12 min-h-screen px-5 md:px-20 mt-2">
       <router-view/>
     </div>
     <Footer/>

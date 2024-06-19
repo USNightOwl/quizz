@@ -1,17 +1,26 @@
 <template lang="">
   <div class="text-xs hidden md:flex uppercase font-semibold justify-between items-center flex-1">
     <div class="flex gap-5">
-      <div>Đề thi THPT</div>
-      <div>Lớp 12</div>
-      <div>Lớp 11</div>
-      <div>Lớp 10</div>
-      <div>Tiếng anh</div>
-      <div>Đại học</div>
-      <div>Trắc nghiệm tính cách MBTI</div>
+      <div class="hover:text-gray-400 cursor-pointer">Đề thi THPT</div>
+      <router-link :to="{ name: 'exercise', params: { classId: 'lop-12' } }" class="hover:text-gray-400">
+        Lớp 12
+      </router-link>
+      <router-link :to="{ name: 'exercise', params: { classId: 'lop-11' } }" class="hover:text-gray-400">
+        Lớp 11
+      </router-link>
+      <router-link :to="{ name: 'exercise', params: { classId: 'lop-10' } }" class="hover:text-gray-400">
+        Lớp 10
+      </router-link>
+      <router-link :to="{ name: 'exercise', params: { classId: 'bai-tap-tieng-anh' } }" class="hover:text-gray-400">
+        Tiếng anh
+      </router-link>
+      <router-link class="hover:text-gray-400">Đại học</router-link>
+      <router-link class="hover:text-gray-400">Trắc nghiệm tính cách MBTI</router-link>
     </div>
     <Searchbar/>
   </div>
-  <div class="flex md:hidden justify-end flex-1">
+
+  <div class="flex md:hidden justify-end flex-1 cursor-pointer">
     <Icon icon="pi-bars" className="text-xl"/>
   </div>
 </template>

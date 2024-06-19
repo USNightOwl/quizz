@@ -1,8 +1,6 @@
 <template lang="">
-  <div class="px-5 md:px-20 mt-2">
-    <ListCard title="Đề thi THPT" url="/"/>
-    <ListCard title="Lớp 12" url="/"/>
-  </div>
+  <ListCard title="Đề thi THPT" url="/danh-sach-bai-tap/toan-de-thi-thpt"/>
+  <ListCard title="Lớp 12" url="/danh-sach-bai-tap/lop-12"/>
 </template>
 
 <script setup>
