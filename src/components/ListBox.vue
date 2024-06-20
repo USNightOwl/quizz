@@ -1,9 +1,21 @@
 <template lang="">
   <div>
-    <Box v-for="n in 10" :key="n"/>
+    <Box 
+      v-for="exam in exams.data" 
+      :key="exam.slug"
+      :name="exam.name"
+      :avatar="exam.avatar"
+    />
   </div>
 </template>
 
 <script setup>
   import Box from "@/components/Box.vue";
+
+  const props = defineProps({
+    exams: {
+      type: Object,
+      required: true,
+    }
+  });
 </script>
