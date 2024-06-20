@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import ListBox from "@/components/ListBox.vue";
   import { useRoute } from 'vue-router';
   import { computed, watch, reactive } from "vue";
