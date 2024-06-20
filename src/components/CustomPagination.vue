@@ -74,8 +74,8 @@
 
   @media only screen and (max-width: 600px) {
     .paginate-buttons{
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       font-size: 0.8rem;
     }
   }
