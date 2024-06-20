@@ -1966,6 +1966,13 @@ vscode-uri@^3.0.8:
   resolved "https://registry.npmjs.org/vscode-uri/-/vscode-uri-3.0.8.tgz"
   integrity sha512-AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw==
 
+vue-awesome-paginate@^1.1.46:
+  version "1.1.46"
+  resolved "https://registry.yarnpkg.com/vue-awesome-paginate/-/vue-awesome-paginate-1.1.46.tgz#93091ca23b98d4be7d21149ae0dfbc2997215743"
+  integrity sha512-hjwAJLd2N54j0uuGgqmlTdhZw8NBFQpFiShjGrvxsA0DnvmOQjM18GEor+Ieigz6nE8VA4hQerIDBQjf4lsacg==
+  dependencies:
+    vue "^3.2.25"
+
 vue-demi@>=0.14.5:
   version "0.14.8"
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.14.8.tgz#00335e9317b45e4a68d3528aaf58e0cec3d5640a"
@@ -2007,7 +2014,7 @@ vue3-lazyload@^0.3.8:
   dependencies:
     vue-demi "^0.12.5"
 
-vue@^3.4.21:
+vue@^3.2.25, vue@^3.4.21:
   version "3.4.29"
   resolved "https://registry.npmjs.org/vue/-/vue-3.4.29.tgz"
   integrity sha512-8QUYfRcYzNlYuzKPfge1UWC6nF9ym0lx7mpGVPJYNhddxEf3DD0+kU07NTL0sXuiT2HuJuKr/iEO8WvXvT0RSQ==

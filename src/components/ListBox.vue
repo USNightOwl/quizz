@@ -1,21 +1,32 @@
 <template lang="">
   <div>
     <Box 
-      v-for="exam in exams.data" 
+      v-for="exam in props.exams.data" 
       :key="exam.slug"
       :name="exam.name"
       :avatar="exam.avatar"
       :description="exam.description || exam.meta_description"
+    />
+
+    <custom-pagination 
+      :per-page="props.exams.per_page"
+      :total-items="props.exams.total"
+      :current-page="props.currentPage"
     />
   </div>
 </template>
 
 <script setup>
   import Box from "@/components/Box.vue";
+  import CustomPagination from "@/components/CustomPagination.vue";
 
   const props = defineProps({
     exams: {
       type: Object,
+      required: true,
+    },
+    currentPage: {
+      type: Number,
       required: true,
     }
   });
