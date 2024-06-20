@@ -3,16 +3,15 @@
     <h1 v-html="props.name" class="mb-2"></h1>
     <p v-for="(ans, idx) in props.answers" :key="ans.id" class="text-[1rem] leading-4 mb-4 px-1 flex items-center">
       <input 
-        :id="'question-'+props.questionId" 
+        :id="'question-'+props.questionId+'-'+idx" 
         type="radio" 
         :value="idx" 
-        :name="'question-'+props.questionId" 
         v-model="checked"
         class="w-4 h-4 bg-gray-100 border-gray-300 cursor-pointer focus:outline-none"
       />
 
       <label 
-        :for="'question-'+props.questionId" 
+        :for="'question-'+props.questionId+'-'+idx"  
         :class="'ms-2 cursor-pointer ' + (checked===idx && 'text-[#67c23a]')"
       >
         {{ ans.name }}
@@ -22,7 +21,8 @@
 </template>
 
 <script setup>
-  import { ref } from "vue";
+  import console from "console";
+import { ref } from "vue";
   const props = defineProps({
     name: {
       type: String,
