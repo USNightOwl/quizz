@@ -27,6 +27,9 @@ const routes = [
 const router = createRouter({
   history: createWebHistory("quick/"),
   routes,
+  scrollBehavior() {
+    document.getElementById('app')?.scrollIntoView({ behavior: 'smooth' });
+  }
 })
 
 export default router;
