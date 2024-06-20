@@ -13,7 +13,7 @@ const getItem = (key: string, storage: Storage) => {
 }
 
 export const useStorage = (key: string, type = 'session') => {
-  let storage = null;
+  let storage: Storage|null = null;
   switch (type) {
     case 'session':
       storage = sessionStorage;
