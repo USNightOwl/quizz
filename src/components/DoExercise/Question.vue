@@ -1,7 +1,7 @@
 <template lang="">
-  <div class="mb-4">
+  <div class="mb-5">
     <h1 v-html="props.name" class="mb-2"></h1>
-    <p v-for="(ans, idx) in props.answers" :key="ans.id" class="text-sm mb-4 px-1 flex items-center">
+    <p v-for="(ans, idx) in props.answers" :key="ans.id" class="text-[1rem] mb-4 px-1 flex items-center">
       <input 
         :id="'question-'+props.questionId" 
         type="radio" 
