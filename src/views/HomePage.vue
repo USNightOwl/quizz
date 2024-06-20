@@ -8,7 +8,6 @@
       :url="`/danh-sach-bai-tap/${category.slug}`"
     />
   </div>
-  <div v-else>Loading...</div>
   
 </template>
 
@@ -16,12 +15,16 @@
   import ListCard from"@/components/ListCard.vue";
   import { RepositoryFactory } from "@/api/RepositoryFactory";
   import { onMounted, reactive } from "vue";
+  import { useLoadingStore } from "@/store/loading";
 
+  const loadingStore = useLoadingStore();
   const homeData = reactive([]);
 
   onMounted(async ()=> {
     const HomeRepository = RepositoryFactory.get("home");
+    loadingStore.changeLoadingState(true);
     const { data } = await HomeRepository.get();
+    loadingStore.changeLoadingState(false);
     homeData.value = data;
   });
   

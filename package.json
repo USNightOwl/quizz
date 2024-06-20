@@ -14,6 +14,7 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "axios": "^1.7.2",
+    "pinia": "^2.1.7",
     "primeicons": "^7.0.0",
     "vue": "^3.4.21",
     "vue-router": "4",
