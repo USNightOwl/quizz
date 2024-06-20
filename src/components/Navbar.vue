@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="text-xs hidden md:flex uppercase font-semibold justify-between items-center flex-1">
+  <div class="text-xs hidden lg:flex uppercase font-semibold justify-between items-center flex-1">
     <div class="flex gap-5">
       <div class="hover:text-gray-400 cursor-pointer">Đề thi THPT</div>
       <router-link :to="{ name: 'exercise', params: { classId: 'lop-12' } }" class="hover:text-gray-400">
@@ -15,12 +15,12 @@
         Tiếng anh
       </router-link>
       <router-link class="hover:text-gray-400" :to="{ name: 'exercise', params: { classId: 'bai-tap-tieng-anh' } }">Đại học</router-link>
-      <router-link class="hover:text-gray-400" :to="{ name: 'exercise', params: { classId: 'bai-tap-tieng-anh' } }">Trắc nghiệm tính cách MBTI</router-link>
+      <router-link class="hover:text-gray-400" :to="{ name: 'do-exercise', params: { exerciseId: 'test-trac-nghiem-tinh-cach-mbti-tam-ly-hoc-165' } }">Trắc nghiệm tính cách MBTI</router-link>
     </div>
     <Searchbar/>
   </div>
 
-  <div class="flex md:hidden justify-end flex-1 cursor-pointer">
+  <div class="flex lg:hidden justify-end flex-1 cursor-pointer">
     <Icon icon="pi-bars" className="text-xl"/>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template lang="">
   <div class="mb-4 md:mb-0">
-    <router-link to="">
+    <router-link :to="`/lam-bai/${slug}`">
       <div class="w-full h-40">
         <img 
           v-lazy="{ src: props.avatar }" 
@@ -22,5 +22,9 @@
       type: String,
       required: true,
     },
+    slug: {
+      type: String,
+      required: true,
+    }
   });
 </script>

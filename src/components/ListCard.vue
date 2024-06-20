@@ -9,6 +9,7 @@
         :key="exam.slug"
         :avatar="exam.avatar"
         :title="exam.name"
+        :slug="exam.slug"
       />
     </div>
   </div>

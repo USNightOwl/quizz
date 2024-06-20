@@ -4,7 +4,8 @@
       <div v-if="!loadingStore.isLoading && examData">
         <Title :name="examData.value.exam.name"/>
         <div class="md:px-4 px-2 text-lg mb-8">
-          <i class="font-medium">Thí sinh đọc kỹ đề trước khi làm bài.</i>
+          <i class="font-medium" v-html="examData.value.exam.pages[0].note">
+          </i>
           <div class="my-3">
             <Question 
               v-for="q in examData.value.exam.pages[0].questions"
