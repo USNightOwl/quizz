@@ -18,6 +18,11 @@ const routes = [
     ]
   },
   {
+    path: "/lam-bai/:exerciseId",
+    name: "do-exercise",
+    component: () => import("@/views/DoExercisePage.vue"),
+  },
+  {
     path:"/:pathMatch(.*)*",
     name: "notfound",
     component: () => import("@/views/NoutFoundPage.vue"),

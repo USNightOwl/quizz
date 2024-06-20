@@ -10,7 +10,7 @@
 <script setup>
   import ListBox from "@/components/ListBox.vue";
   import { useRoute } from 'vue-router';
-  import { computed, watch, reactive, ref } from "vue";
+  import { watch, reactive, ref } from "vue";
   import { RepositoryFactory } from "@/api/RepositoryFactory";
   import { useLoadingStore } from "@/store/loading";
 
@@ -35,6 +35,4 @@
 
     examsData.value = data;
   }, { immediate: true });
-  
-  
 </script>

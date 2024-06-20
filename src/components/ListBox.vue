@@ -6,6 +6,7 @@
       :name="exam.name"
       :avatar="exam.avatar"
       :description="exam.description || exam.meta_description"
+      :slug="exam.slug"
     />
 
     <custom-pagination 
