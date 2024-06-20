@@ -1,5 +1,5 @@
 <template lang="">
-  <div>
+  <div class="mb-4 md:mb-0">
     <router-link to="">
       <div class="w-full h-40">
         <img 
