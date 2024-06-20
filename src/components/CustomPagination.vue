@@ -46,7 +46,7 @@
   
 </script>
 
-<style>
+<style lang="scss">
   .pagination-container {
     display: flex;
     column-gap: 10px;
@@ -59,16 +59,24 @@
     background-color: rgb(242, 242, 242);
     border: 1px solid rgb(217, 217, 217);
     color: black;
-  }
-  .paginate-buttons:hover {
-    background-color: #d8d8d8;
+    &:hover{
+      background-color: #d8d8d8;
+    }
   }
   .active-page {
     background-color: #3498db;
     border: 1px solid #3498db;
     color: white;
+    &:hover{
+      background-color: #2988c8;
+    }
   }
-  .active-page:hover {
-    background-color: #2988c8;
+
+  @media only screen and (max-width: 600px) {
+    .paginate-buttons{
+      width: 32px;
+      height: 32px;
+      font-size: 0.8rem;
+    }
   }
 </style>
