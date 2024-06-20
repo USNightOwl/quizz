@@ -25,7 +25,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory("quick/"),
+  history: createWebHistory("quizz/"),
   routes,
   scrollBehavior() {
     document.getElementById('app')?.scrollIntoView({ behavior: 'smooth' });

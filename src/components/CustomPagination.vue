@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="flex items-center justify-center" v-if="props.totalItems > 0">
+  <div class="flex items-center justify-center md:mt-10 mt-6" v-if="props.totalItems > 0">
     <vue-awesome-paginate
       :total-items="props.totalItems"
       :items-per-page="props.perpage"
