@@ -3,7 +3,7 @@
     <vue-awesome-paginate
       :total-items="props.totalItems"
       :items-per-page="props.perpage"
-      :max-pages-shown="5"
+      :max-pages-shown="3"
       v-model="page"
       :on-click="onClickHandler"
     />
