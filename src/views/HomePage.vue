@@ -12,7 +12,7 @@
   
 </template>
 
-<script setup lang="ts">
+<script setup>
   import ListCard from"@/components/ListCard.vue";
   import { RepositoryFactory } from "@/api/RepositoryFactory";
   import { onMounted, reactive } from "vue";
