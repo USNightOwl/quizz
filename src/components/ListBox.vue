@@ -5,6 +5,7 @@
       :key="exam.slug"
       :name="exam.name"
       :avatar="exam.avatar"
+      :description="exam.description || exam.meta_description"
     />
   </div>
 </template>
