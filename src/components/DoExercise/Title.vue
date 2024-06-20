@@ -4,7 +4,7 @@
       {{ props.name }}
     </h1>
     <router-link to="/" class="w-[8%] text-center">
-      <Icon icon="pi-home" className="md:text-2xl text-xl"/>
+      <Icon icon="pi-home" className="text-2xl"/>
     </router-link>
   </div>
 
