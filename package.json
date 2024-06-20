@@ -13,9 +13,11 @@
   "dependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "axios": "^1.7.2",
     "primeicons": "^7.0.0",
     "vue": "^3.4.21",
-    "vue-router": "4"
+    "vue-router": "4",
+    "vue3-lazyload": "^0.3.8"
   },
   "devDependencies": {
     "@types/node": "^20.14.5",

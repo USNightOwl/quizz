@@ -1,12 +1,26 @@
 <template lang="">
   <div>
     <router-link to="">
-      <img src="https://api.baitaptracnghiem.com/storage/images/76ji3bW7kV8MFwkTr1VI123b0E7IBDbH1me2pmey.webp" alt="exercise-background" class="w-fit rounded-lg object-contain"/>
-      <div class="text-md mt-3">Thi thử THPT môn Sinh Học online - Đề minh họa năm 2024 của Bộ GD&ĐT</div>
+      <div class="w-full h-40">
+        <img 
+          v-lazy="{ src: props.avatar }" 
+          class="rounded-lg object-cover w-full h-40"
+        />
+      </div>
+      <div class="text-md mt-3">{{ props.title }}</div>
     </router-link>
   </div>
 </template>
 
 <script setup>
-
+  const props = defineProps({
+    title: {
+      type: String,
+      required: true,
+    },
+    avatar: {
+      type: String,
+      required: true,
+    },
+  });
 </script>

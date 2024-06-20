@@ -1,8 +1,28 @@
 <template lang="">
-  <ListCard title="Đề thi THPT" url="/danh-sach-bai-tap/toan-de-thi-thpt"/>
-  <ListCard title="Lớp 12" url="/danh-sach-bai-tap/lop-12"/>
+  <div v-if="homeData.value && homeData.value.categories">
+    <ListCard 
+      v-for="category in homeData.value.categories"
+      :title="category.name" 
+      :key="category.slug"
+      :exams="category.exams"
+      :url="`/danh-sach-bai-tap/${category.slug}`"
+    />
+  </div>
+  <div v-else>Loading...</div>
+  
 </template>
 
-<script setup>
+<script setup lang="ts">
   import ListCard from"@/components/ListCard.vue";
+  import { RepositoryFactory } from "@/api/RepositoryFactory";
+  import { onMounted, reactive } from "vue";
+
+  const homeData = reactive([]);
+
+  onMounted(async ()=> {
+    const HomeRepository = RepositoryFactory.get("home");
+    const { data } = await HomeRepository.get();
+    homeData.value = data;
+  });
+  
 </script>
