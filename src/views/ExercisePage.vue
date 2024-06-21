@@ -14,6 +14,7 @@
   import { RepositoryFactory } from "@/api/RepositoryFactory";
   import { useLoadingStore } from "@/store/loading";
 
+  const ExamRepository = RepositoryFactory.get("exams");
   const loadingStore = useLoadingStore();
   const examsData = reactive([]);
   const currentPage = ref(1);
@@ -21,7 +22,6 @@
   const route = useRoute();
   watch(() => [route.path, route.query], async () => {
     const classId = route.params.classId;
-    const ExamRepository = RepositoryFactory.get("exams");
     try {
       currentPage.value = parseInt(route.query.page);
       if (isNaN(currentPage.value)) throw new Error();

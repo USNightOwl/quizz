@@ -14,7 +14,7 @@
 
 <script setup>
   import Icon from "@/components/Icon.vue";
-  import SearchPopup from "@/components/Navbar/SearchPopup.vue";
+  import SearchPopup from "@/components/Search/SearchPopup.vue";
   import { ref } from "vue";
 
   const isShowSearchPopup = defineModel("isShowSearchPopup", {

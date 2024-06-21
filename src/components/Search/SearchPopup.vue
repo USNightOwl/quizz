@@ -7,9 +7,11 @@
     <div class="flex justify-between items-center font-normal">
       <h1 class="text-gray-500 text-lg">Tìm đề thi</h1>
       <button @click="isShowSearchPopup=false">
-        <Icon icon="pi-times" class="text-gray-400 text-base"/>
+        <Icon icon="pi-times" class="text-gray-400 text-lg"/>
       </button>
     </div>
+
+    <SearchHandle />
   </div>
 </template>
 
@@ -18,6 +20,7 @@
   import { ref } from 'vue';
   import { useClickOutside } from "@/hooks/useClickOutside";
   import { useKeyboardShortcut } from "@/hooks/useKeyboardShortcut";
+  import SearchHandle from "@/components/Search/SearchHandle.vue";
 
   const isShowSearchPopup = defineModel("isShowSearchPopup", {
     type: Boolean,

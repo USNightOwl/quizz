@@ -8,6 +8,12 @@ export default {
   },
   getOne(exerciseId: string) {
     return AxiosClient.get(`/exam/${exerciseId}`);
-  }
+  },
+  search(searchText: string, page: number) {
+    return AxiosClient.post('/search', {
+      keyword: searchText,
+      page: page || 1,
+    });
+  },
 }
 

@@ -40,12 +40,12 @@
 
   const examData = reactive([]);
   const loadingStore = useLoadingStore();
+  const ExamRepository = RepositoryFactory.get("exams");
   const route = useRoute();
 
   watch(() => [route.path, route.query], async () => {
     const exerciseId = route.params.exerciseId;
-    const ExamRepository = RepositoryFactory.get("exams");
-
+    
     loadingStore.changeLoadingState(true);
     const { data } = await ExamRepository.getOne(exerciseId);
     loadingStore.changeLoadingState(false);

@@ -17,11 +17,11 @@
   import { onMounted, reactive } from "vue";
   import { useLoadingStore } from "@/store/loading";
 
+  const HomeRepository = RepositoryFactory.get("home");
   const loadingStore = useLoadingStore();
   const homeData = reactive([]);
 
   onMounted(async ()=> {
-    const HomeRepository = RepositoryFactory.get("home");
     loadingStore.changeLoadingState(true);
     const { data } = await HomeRepository.get();
     loadingStore.changeLoadingState(false);
