@@ -3,7 +3,7 @@
     <div class="md:w-9/12 rounded  mx-auto box-shadow bg-white text-[#606266] flex flex-col">
       <div v-if="!loadingStore.isLoading && examData">
         <Title :name="examData.value.exam.name"/>
-        <div class="md:px-4 px-2 text-lg mb-8">
+        <div class="md:px-4 px-2 text-base mb-8">
           <i class="font-medium" v-html="examData.value.exam.pages[0].note">
           </i>
           <div class="my-3">
