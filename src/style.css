@@ -11,3 +11,7 @@ body {
 input[type='radio'] {
   accent-color: green;
 }
+
+button:focus {
+  outline: none;
+}
