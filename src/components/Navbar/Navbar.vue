@@ -26,7 +26,7 @@
       <Icon icon="pi-bars" className="text-xl"/>
     </button>
     <div v-show="isShowNavbar" class="bg-white w-full absolute top-0 left-0 px-2 h-screen flex flex-col">
-      <div class="flex justify-end py-2">
+      <div class="flex justify-end py-2 border-b border-b-gray-100">
         <button @click="isShowNavbar=false"> 
           <Icon icon="pi-times" class="text-gray-400 text-xl"/>
         </button>
