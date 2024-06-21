@@ -1,6 +1,6 @@
 <template lang="">
   <button 
-    class="text-gray-400 flex items-center gap-1 outline-none text-[0.6rem]" 
+    class="hidden text-gray-400 md:flex items-center gap-1 outline-none text-[0.6rem]" 
     @click="isShowSearchPopup = !isShowSearchPopup"
   >
     <Icon icon="pi-search" />
@@ -17,5 +17,8 @@
   import SearchPopup from "@/components/Navbar/SearchPopup.vue";
   import { ref } from "vue";
 
-  const isShowSearchPopup = ref(false);
+  const isShowSearchPopup = defineModel("isShowSearchPopup", {
+    type: Boolean,
+    required: true,
+  });
 </script>

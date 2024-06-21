@@ -5,7 +5,7 @@
       :title="category.name" 
       :key="category.slug"
       :exams="category.exams"
-      :url="`/danh-sach-bai-tap/${category.slug}`"
+      :url="category.slug"
     />
   </div>
   

@@ -1,7 +1,7 @@
 <template lang="">
   <div 
-    class="box-shadow transition ease-in-out z-[1000] absolute top-0 bg-white h-screen w-6/12 p-4 rounded"
-    :class="{ 'right-0': isShowSearchPopup, '-right-[10000px]': !isShowSearchPopup}"
+    class="box-shadow z-[1000] absolute top-0 bg-white h-screen md:w-6/12 w-full p-4 rounded right-0"
+    v-show="isShowSearchPopup"
     ref="container"
   >
     <div class="flex justify-between items-center font-normal">
@@ -36,6 +36,7 @@
       isShowSearchPopup.value = false;
     }
   });
+
 </script>
 
 <style scoped>
