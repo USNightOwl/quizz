@@ -1,6 +1,6 @@
 <template lang="">
     <router-link :to="`/lam-bai/${slug}`" >
-      <div class="md:flex mb-6 gap-6 p-2 hover:bg-slate-100 rounded-md">
+      <div class="md:flex mb-6 gap-6 p-2 hover:bg-slate-100/70 rounded-md">
         <div class="md:w-3/12">
           <img
             v-lazy="{ src: props.avatar }"  

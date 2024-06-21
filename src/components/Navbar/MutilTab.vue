@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="relative">
+  <div class="relative uppercase">
     <div 
       class="hover:text-gray-400 cursor-pointer flex items-center gap-1"
       @mouseenter="mouseEnter"
@@ -12,13 +12,13 @@
       v-if="isShow" 
       @mouseenter="mouseEnter"
       @mouseleave="mouseLeave"
-      class="w-fit absolute max-h-[24rem] top-4 left-0 shadow-lg bg-white rounded overflow-y-auto"
+      class="w-fit absolute max-h-[24rem] top-4 left-0 box-shadow bg-white rounded overflow-y-auto"
     >
       <router-link
         v-for="item in props.childrenNode"
         :to="{ name: 'exercise', params: { classId: item.slug } }"
         :key="item.slug"
-        class="p-2 text-nowrap text-[#606266] text-[0.7rem] cursor-pointer hover:bg-slate-100/80 block"
+        class="p-2 text-nowrap text-[#606266] text-[0.7rem] cursor-pointer hover:bg-slate-200/30 block"
       >
         {{ item.name }}
       </router-link>
@@ -50,3 +50,9 @@
     isShow.value = false;
   }
 </script>
+
+<style scoped>
+  .box-shadow {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2);
+  }
+</style>

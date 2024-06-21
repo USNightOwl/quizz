@@ -6,7 +6,7 @@
         <div class="md:px-4 px-2 text-base mb-8">
           <i class="font-medium" v-html="examData.value.exam.pages[0].note">
           </i>
-          <div class="my-3">
+          <div class="my-3 px-3">
             <Question 
               v-for="q in examData.value.exam.pages[0].questions"
               :key="q.id"

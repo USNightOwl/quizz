@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="text-xs hidden lg:flex uppercase font-semibold justify-between items-center flex-1">
+  <div class="text-xs hidden lg:flex font-semibold justify-between items-center flex-1">
     <div class="flex gap-5">
       <div
         v-for="cate in categoryData.value"
