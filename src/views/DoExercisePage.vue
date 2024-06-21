@@ -33,6 +33,7 @@
   import { watch, reactive } from "vue";
   import { RepositoryFactory } from "@/api/RepositoryFactory";
   import { useLoadingStore } from "@/store/loading";
+  import { toast } from 'vue3-toastify';
   import Title from "@/components/DoExercise/Title.vue";
   import Question from "@/components/DoExercise/Question.vue";
   import Icon from "@/components/Icon.vue";
@@ -50,6 +51,12 @@
     loadingStore.changeLoadingState(false);
 
     examData.value = data;
+
+    toast.warning("Bạn hãy kéo xuống kiểm tra đề một lượt trước khi làm bài nhé. Chúc bạn đạt kết quả tốt!", {
+      toastStyle: {
+        fontSize: '14px',
+      },
+    });
   }, { immediate: true });
 
   function submitExam() {
