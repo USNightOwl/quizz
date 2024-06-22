@@ -1,6 +1,8 @@
 <template lang="">
   <div class="mb-4 md:mb-0">
-    <router-link :to="`/lam-bai/${slug}`">
+    <router-link 
+      :to="{ name: 'do-exercise', params: { exerciseId: props.slug } }"
+    >
       <div class="w-full h-40">
         <img 
           v-lazy="{ src: props.avatar }" 
