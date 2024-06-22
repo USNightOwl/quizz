@@ -1,9 +1,14 @@
 <template lang="">
   <div>
-    <img
-      v-lazy="{ src: props.data.avatar }"  
-      class="w-full rounded-lg object-cover h-32 mb-2"
-    />
+    <router-link
+      :to="{ name: 'do-exercise', params: { exerciseId: props.data.slug } }"
+      @click.native="onClick"
+    >
+      <img
+        v-lazy="{ src: props.data.avatar }"  
+        class="w-full rounded-lg object-cover h-32 mb-2"
+      />
+    </router-link>
     <router-link 
       v-if="props.data.category"
       @click.native="onClick"
@@ -12,9 +17,13 @@
     >
       {{ props.data.category.name }}
     </router-link>
-    <div class="font-bold leading-5 mt-2 mb-4 md:mb-2">
+    <router-link 
+      :to="{ name: 'do-exercise', params: { exerciseId: props.data.slug } }"
+      @click.native="onClick"
+      class="font-bold leading-5 mt-2 mb-4 md:mb-2 block"
+    >
       {{ props.data.name }}
-    </div>
+    </router-link>
   </div>
 </template>
 

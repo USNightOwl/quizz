@@ -32,7 +32,14 @@
       /> 
     </div>
 
-    <div class="border-t">Pagination here</div>
+    <div class="border-t" v-if="searchData.value?.results">
+      <custom-pagination 
+        :per-page="searchData.value.results.per_page"
+        :total-items="searchData.value.results.total"
+        :current-page="searchData.value.results.current_page"
+        :func="changePage"
+      />
+    </div>
   </div>
 </template>
 
@@ -42,6 +49,8 @@
   import { onMounted, reactive } from "vue";
   import CardSearchResult from "@/components/Search/CardSearchResult.vue";
   import Icon from "@/components/Icon.vue";
+  import CustomPagination from "@/components/CustomPagination.vue";
+
   const isShowSearchPopup = defineModel("isShowSearchPopup", {
     type: Boolean,
     required: true,
@@ -52,13 +61,19 @@
   const ExamRepository = RepositoryFactory.get("exams");
   const searchText = ref("");
   const isLoading = ref(false);
-
+  const currentPage = ref(1);
+  
   async function handleSubmit() {
     isLoading.value = true;
-    const { data } = await ExamRepository.search(searchText.value, 1);
+    const { data } = await ExamRepository.search(searchText.value, currentPage.value);
     searchData.value = data;
     isLoading.value = false;
 
     console.log(searchData.value);
+  }
+
+  function changePage(page) {
+    currentPage.value = page;
+    handleSubmit();
   }
 </script>

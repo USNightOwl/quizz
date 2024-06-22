@@ -11,11 +11,8 @@
 </template>
 
 <script setup>
-  import router from "@/router";
   import { ref, watch } from "vue";
-  import { useRoute } from 'vue-router';
 
-  const route = useRoute();
   const props = defineProps({
     perPage: {
       type: Number,
@@ -28,14 +25,14 @@
     currentPage: {
       type: Number,
       required: true,
+    },
+    func: {
+      type: Function,
     }
   });
 
   const onClickHandler = (page) => {
-    const classId = route.params.classId;
-    router.push({ name: "exercise", params: { classId }, query: {
-      page,
-    }})
+    props.func(page);
   };
 
   const page = ref(1);
