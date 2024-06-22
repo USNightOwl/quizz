@@ -9,7 +9,7 @@
         class="w-full rounded-t-lg object-cover h-60"
       />
     </router-link>
-    <div class="rounded-b-lg p-4 md:p-2 md:hover:bg-slate-100/80 rounded">
+    <div class="rounded-b-lg p-3 md:p-2 md:hover:bg-slate-100/80 rounded">
       <router-link 
         :to="{ name: 'exercise', params: { classId: props.categorySlug } }"
         class="uppercase font-semibold text-gray-500 block w-fit mb-2 hover:text-green-500 md:hidden text-sm md:text-sm text-nowrap"
