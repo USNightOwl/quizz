@@ -23,7 +23,7 @@
       </button>
     </form>
 
-    <div v-if="searchData.value?.results" class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-3 flex-1 overflow-y-auto">
+    <div v-if="searchData.value?.results" class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-3 flex-1 overflow-y-auto" ref="scroll">
       <CardSearchResult
         v-for="item in searchData.value.results.data"
         :key="item.slug"
@@ -56,6 +56,7 @@
     required: true,
   });
 
+  const scroll = ref();
   const searchData = reactive([]);
 
   const ExamRepository = RepositoryFactory.get("exams");
@@ -67,9 +68,8 @@
     isLoading.value = true;
     const { data } = await ExamRepository.search(searchText.value, currentPage.value);
     searchData.value = data;
+    scroll.value?.scrollTo(0, 0);
     isLoading.value = false;
-
-    console.log(searchData.value);
   }
 
   function changePage(page) {
