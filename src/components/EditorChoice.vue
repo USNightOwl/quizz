@@ -12,7 +12,7 @@
     <div class="rounded-b-lg p-4">
       <router-link 
         :to="{ name: 'exercise', params: { classId: props.categorySlug } }"
-        class="uppercase font-semibold text-gray-500 block w-fit mb-2 hover:text-green-500 text-xs md:text-sm text-nowrap"
+        class="uppercase font-semibold text-gray-500 block w-fit mb-2 hover:text-green-500 text-sm text-nowrap"
       >
         {{ props.categoryName}}
       </router-link>
