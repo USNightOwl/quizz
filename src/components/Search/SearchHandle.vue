@@ -1,5 +1,9 @@
 <template lang="">
-  <div>
+  <div class="relative flex h-[90vh] flex-col">
+    <div v-show="isLoading" class="z-[1000] absolute top-0 lef-0 w-full h-full bg-white/80 flex items-center justify-center" >
+      <Icon icon="pi-spin pi-spinner" className="text-3xl text-[#67c23a]"/>
+    </div>
+    
     <form class="flex items-center mt-4" @submit.prevent="handleSubmit">   
       <label for="simple-search" class="sr-only">Search</label>
       <div class="relative w-full">
@@ -11,13 +15,24 @@
           required 
         />
       </div>
-      <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-[#67c23a] rounded border border-[#67c23a] hover:bg-[#5cad34] hover:border-[#5cad34] focus:ring-4 focus:outline-none focus:ring-[#67c23a]/80">
+      <button type="submit" class="p-2.5 ms-2 text-sm font-medium text-white bg-[#67c23a] rounded border border-[#67c23a] hover:bg-[#5cad34] hover:border-[#5cad34] focus:ring-none focus:outline-none focus:ring-[#67c23a]/80 ">
         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
         </svg>
         <span class="sr-only">Search</span>
       </button>
     </form>
+
+    <div v-if="searchData.value?.results" class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-3 flex-1 overflow-y-auto">
+      <CardSearchResult
+        v-for="item in searchData.value.results.data"
+        :key="item.slug"
+        :data="item"
+        v-model:isShowSearchPopup="isShowSearchPopup"
+      /> 
+    </div>
+
+    <div class="border-t">Pagination here</div>
   </div>
 </template>
 
@@ -25,16 +40,24 @@
   import { ref } from "vue";
   import { RepositoryFactory } from "@/api/RepositoryFactory";
   import { onMounted, reactive } from "vue";
-  import { useLoadingStore } from "@/store/loading";
+  import CardSearchResult from "@/components/Search/CardSearchResult.vue";
+  import Icon from "@/components/Icon.vue";
+  const isShowSearchPopup = defineModel("isShowSearchPopup", {
+    type: Boolean,
+    required: true,
+  });
 
   const searchData = reactive([]);
 
   const ExamRepository = RepositoryFactory.get("exams");
   const searchText = ref("");
+  const isLoading = ref(false);
 
   async function handleSubmit() {
+    isLoading.value = true;
     const { data } = await ExamRepository.search(searchText.value, 1);
     searchData.value = data;
+    isLoading.value = false;
 
     console.log(searchData.value);
   }

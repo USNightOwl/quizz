@@ -11,7 +11,7 @@
       </button>
     </div>
 
-    <SearchHandle />
+    <SearchHandle v-model:isShowSearchPopup="isShowSearchPopup"/>
   </div>
 </template>
 
