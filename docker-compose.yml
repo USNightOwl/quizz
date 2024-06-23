@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  frontend:
+    restart: always
+    container_name: frontend
+    build:
+      dockerfile: Dockerfile
+      context: "./"
+    volumes:
+      - ./:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - "3000:3000"
+    tty: true
