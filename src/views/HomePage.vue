@@ -50,8 +50,6 @@
     const { data } = await HomeRepository.get();
     loadingStore.changeLoadingState(false);
     homeData.value = data;
-
-    console.log(homeData.value);
   });
   
 </script>

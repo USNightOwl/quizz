@@ -15,6 +15,8 @@
 
 <script setup>
   import SingleTab from "@/components/Navbar/SingleTab.vue";
+  import { reactive } from "vue";
+
   const isShowNavbar = defineModel("isShowNavbar", {
     type: Boolean,
     required: true,
