@@ -19,7 +19,7 @@
 
       <router-link 
         :to="{ name: 'do-exercise', params: { exerciseId: props.slug } }"
-        class="md:text-[0.5rem] md:uppercase md:text-xl text-base font-bold md:text-green-500 !leading-[0rem]"
+        class="md:text-[0.5rem] md:uppercase text-base font-bold md:text-green-500 !leading-[0rem]"
       >
         {{ props.title }}
       </router-link>
