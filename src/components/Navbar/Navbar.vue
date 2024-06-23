@@ -27,7 +27,7 @@
     </button>
     <div v-show="isShowNavbar" class="bg-white w-full absolute top-0 left-0 px-2 h-screen flex flex-col">
       <div class="flex justify-between items-center py-2 border-b border-b-gray-100">
-        <div class="uppercase flex items-center gap-2" @click="handleClick">
+        <div class="uppercase flex items-center gap-1 text-gray-600" @click="handleClick">
           Tìm kiếm 
           <Icon icon="pi-search" class="text-sm"/>
         </div>
