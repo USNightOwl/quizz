@@ -1,7 +1,7 @@
 <template lang="">
   <div class="relative uppercase">
     <div 
-      class="hover:text-gray-400 cursor-pointer flex items-center gap-1"
+      class="hover:text-gray-400 text-gray-600 cursor-pointer flex items-center gap-1"
       @mouseenter="mouseEnter"
       @mouseleave="mouseLeave"
     >

@@ -1,9 +1,9 @@
 <template lang="">
-  <div class="md:border-0 border-t w-full md:p-0 px-1 py-2">
+  <div class="md:border-0 border-t w-full md:p-0 px-1 py-2 ">
     <router-link 
       @click.native="onClick"
       :to="{ name: 'exercise', params: { classId: props.classId } }"
-      class="hover:text-gray-400 uppercase block"
+      class="hover:text-gray-400 uppercase block text-gray-600"
     >
       {{ props.name }}
     </router-link>

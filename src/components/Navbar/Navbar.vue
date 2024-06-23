@@ -15,7 +15,6 @@
           :name="cate.name"
           :children-node="cate.children"
         />
-        
       </div>
     </div>
     
