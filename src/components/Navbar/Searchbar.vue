@@ -1,6 +1,6 @@
 <template lang="">
   <button 
-    class="hidden text-gray-400 md:flex items-center gap-1 outline-none text-[0.6rem]" 
+    class="hidden text-gray-400 lg:flex items-center gap-1 outline-none text-[0.6rem]" 
     @click="isShowSearchPopup = !isShowSearchPopup"
   >
     <Icon icon="pi-search" />
