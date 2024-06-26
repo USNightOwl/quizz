@@ -1,19 +1,27 @@
 <template lang="">
   <div class="bg-slate-50 m-0 py-2 px-1">
     <div class="md:w-9/12 rounded  mx-auto box-shadow bg-white text-[#606266] flex flex-col">
-      <div v-if="!loadingStore.isLoading && examData">
+      <div v-if="!loadingStore.isLoading && examData && !isShowResults">
         <Title :name="examData.value.exam.name"/>
         <div class="md:px-4 px-2 text-base mb-8">
           <i class="font-medium" v-html="examData.value.exam.pages[0].note">
           </i>
           <div class="my-3 px-3">
-            <Question 
-              v-for="q in examData.value.exam.pages[0].questions"
-              :key="q.id"
-              :name="q.name"
-              :answers="q.answers"
-              :question-id="q.id"
-            />
+            <div
+              v-for="(page, pageIdx) in examData.value.exam.pages"
+            >
+              <Question 
+                v-for="(q, questionIdx) in page.questions"
+                :key="q.id"
+                :name="q.name"
+                :answers="q.answers"
+                :question-id="q.id"
+                :page-idx="pageIdx"
+                :question-idx="questionIdx"
+                :warning="q.warning==false||!isFirstSubmit?false:true"
+                @update-answer="handleUpdateAnswer"
+              />
+            </div>
           </div>
         </div>
 
@@ -24,21 +32,32 @@
           </button>
         </div>
       </div>
+
+      <div v-else-if="!loadingStore.isLoading && isShowResults">
+        <Results
+          :slug="examData.value.category.slug"
+          :results="resultsData.value"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
   import { useRoute } from 'vue-router';
-  import { watch, reactive } from "vue";
+  import { watch, reactive, ref } from "vue";
   import { RepositoryFactory } from "@/api/RepositoryFactory";
   import { useLoadingStore } from "@/store/loading";
   import { toast } from 'vue3-toastify';
   import Title from "@/components/DoExercise/Title.vue";
   import Question from "@/components/DoExercise/Question.vue";
+  import Results from "@/components/DoExercise/Results.vue";
   import Icon from "@/components/Icon.vue";
 
   const examData = reactive([]);
+  const resultsData = reactive([]);
+  const isShowResults = ref(false);
+  const isFirstSubmit = ref(false);
   const loadingStore = useLoadingStore();
   const ExamRepository = RepositoryFactory.get("exams");
   const route = useRoute();
@@ -59,9 +78,43 @@
     });
   }, { immediate: true });
 
-  function submitExam() {
-    alert("This feature will implement later");
+  function handleUpdateAnswer(answer, pageId, questionId) {
+    examData.value.exam.pages[pageId].questions[questionId].answer = answer;
+    examData.value.exam.pages[pageId].questions[questionId].warning = false;
+  } 
+
+  async function submitExam() {
+    isFirstSubmit.value = true;
+    
+    // check all questions have answer from user 
+    for (const page of examData.value.exam.pages) {
+      for (const q of page.questions){
+        if (q.warning==null || q.warning==true || !q.answer || q.answer.length <= 0) {
+          return toast.warning("Vui lòng trả lời hết các câu hỏi (đang bị bôi đỏ) trước khi nộp bài.", {
+            toastStyle: {
+              fontSize: '14px',
+            },
+            position: toast.POSITION.BOTTOM_RIGHT,
+          });
+        }
+      }
+    }
+
+    // submit answer
+    loadingStore.changeLoadingState(true);
+    const { data } = await ExamRepository.submit(examData.value.exam);
+    loadingStore.changeLoadingState(false);
+
+    resultsData.value = data;
+    isShowResults.value = true;
+    toast.success("Nộp bài thành công", {
+      toastStyle: {
+        fontSize: '14px',
+      },
+      position: toast.POSITION.BOTTOM_RIGHT,
+    });
   }
+
 </script>
 
 <style lang="scss">
