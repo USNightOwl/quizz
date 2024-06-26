@@ -43,6 +43,7 @@
   import Quote from "@/components/DoExercise/Quote.vue";
   import router from "@/router";
 
+  const emit = defineEmits(["change-show-results"]);
   const props = defineProps({
     slug: {
       type: String,
@@ -67,7 +68,7 @@
   }
 
   function handleShowResults() {
-    alert("This feature will show the results and implement later");
+    emit("change-show-results");
   }
 
 </script>

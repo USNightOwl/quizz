@@ -20,16 +20,25 @@
                 :question-idx="questionIdx"
                 :warning="q.warning==false||!isFirstSubmit?false:true"
                 @update-answer="handleUpdateAnswer"
+                :result="resultsData.value?.exam?.pages[pageIdx]?.questions[questionIdx]||null"
               />
             </div>
           </div>
         </div>
 
         <div class="flex justify-center mb-3">
-          <button @click="submitExam" type="button" class="px-4 py-1.5 rounded bg-[#67c23a] text-white hover:bg-[#67c23a]/80 flex items-center gap-2 text-base">
+          <button @click="submitExam" type="button" class="px-4 py-1.5 rounded bg-[#67c23a] text-white hover:bg-[#67c23a]/80 flex items-center gap-2 text-base"
+          v-if="resultsData.value?.exam==null"
+          >
             <Icon icon="pi-check"/>
             Nộp bài
           </button>
+          <router-link v-else class="border px-4 py-1.5 rounded flex items-center gap-2 text-base bg-[#f4f4f5] border-[#909399] hover:bg-[#909399] text-[#909399] hover:text-white"
+          :to="{ name: 'exercise', params: { classId: examData.value.category.slug } }"
+          >
+            <Icon icon="pi-send"/>
+            Làm các đề khác
+          </router-link>
         </div>
       </div>
 
@@ -37,6 +46,7 @@
         <Results
           :slug="examData.value.category.slug"
           :results="resultsData.value"
+          @change-show-results="isShowResults=false"
         />
       </div>
     </div>
@@ -106,6 +116,9 @@
     loadingStore.changeLoadingState(false);
 
     resultsData.value = data;
+
+    console.log(resultsData.value);
+
     isShowResults.value = true;
     toast.success("Nộp bài thành công", {
       toastStyle: {
