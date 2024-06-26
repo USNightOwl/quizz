@@ -7,7 +7,7 @@
     <h1 
       :class="'text-4xl font-bold my-6 ' + (isSubmitHaveNiceResult(props.results.score)?'text-green-500':'text-red-400')"
     >{{ props.results.score }}</h1>
-    <div class="flex md:flex-row flex-col gap-3 md:gap-5 flex-wrap md:my-10 my-5 justify-center items-center px-2">
+    <div class="flex md:flex-row flex-col gap-3 md:gap-5 flex-wrap md:my-10 my-8 justify-center items-center px-2">
       <ButtonUtils
         className="bg-[#f0f9eb] border-[#c2e7b0] hover:bg-[#67c23a] text-[#67c23a]"
         :func="handleTryAgain"
