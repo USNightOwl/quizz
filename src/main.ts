@@ -14,7 +14,7 @@ import './style.css'
 
 const app = createApp(App)
 
-app.use(createPinia())
+app.use(createPinia());
 app.use(Vue3Toastify);
 app.use(VueAwesomePaginate)
 app.use(router)

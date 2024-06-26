@@ -94,38 +94,38 @@
   } 
 
   async function submitExam() {
-    isFirstSubmit.value = true;
-    
-    // check all questions have answer from user 
-    for (const page of examData.value.exam.pages) {
-      for (const q of page.questions){
-        if (q.warning==null || q.warning==true || !q.answer || q.answer.length <= 0) {
-          return toast.warning("Vui lòng trả lời hết các câu hỏi (đang bị bôi đỏ) trước khi nộp bài.", {
-            toastStyle: {
-              fontSize: '14px',
-            },
-            position: toast.POSITION.BOTTOM_RIGHT,
-          });
+    if (window.confirm("Bạn chắc chắn muốn nộp bài?")) {
+      isFirstSubmit.value = true;
+      
+      // check all questions have answer from user 
+      for (const page of examData.value.exam.pages) {
+        for (const q of page.questions){
+          if (q.warning==null || q.warning==true || !q.answer || q.answer.length <= 0) {
+            return toast.warning("Vui lòng trả lời hết các câu hỏi (đang bị bôi đỏ) trước khi nộp bài.", {
+              toastStyle: {
+                fontSize: '14px',
+              },
+              position: toast.POSITION.BOTTOM_RIGHT,
+            });
+          }
         }
       }
+  
+      // submit answer
+      loadingStore.changeLoadingState(true);
+      const { data } = await ExamRepository.submit(examData.value.exam);
+      loadingStore.changeLoadingState(false);
+  
+      resultsData.value = data;
+  
+      isShowResults.value = true;
+      toast.success("Nộp bài thành công", {
+        toastStyle: {
+          fontSize: '14px',
+        },
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     }
-
-    // submit answer
-    loadingStore.changeLoadingState(true);
-    const { data } = await ExamRepository.submit(examData.value.exam);
-    loadingStore.changeLoadingState(false);
-
-    resultsData.value = data;
-
-    console.log(resultsData.value);
-
-    isShowResults.value = true;
-    toast.success("Nộp bài thành công", {
-      toastStyle: {
-        fontSize: '14px',
-      },
-      position: toast.POSITION.BOTTOM_RIGHT,
-    });
   }
 
 </script>
